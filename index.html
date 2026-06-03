@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dream Website</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  *{
+    /* margin: 0 !important;
+    padding: 0 !important; */
+    /* box-sizing: border-box !important; */
+  }
+body{
+  font-family:'Poppins',sans-serif;
+  margin:0;
+  padding:0;
+  background:#fff;
+}
+
+/* ================= NAVBAR ================= */
+    .navbar {
+      background: linear-gradient(135deg, #ffffff, #fff7ed);
+      transition: all 0.4s ease;
+      padding: 15px 20px;
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 22px;
+      color: #ff6a00 !important;
+      letter-spacing: 1px;
+    }
+
+    .nav-link {
+      color: #333 !important;
+      margin: 0 10px;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    /* Hover */
+    .nav-link:hover {
+      color: #ff6a00 !important;
+    }
+
+    /* Underline Animation */
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -5px;
+      background: #ff6a00;
+      transition: 0.4s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Scroll Effect */
+    .navbar.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(255, 106, 0, 0.2);
+    }
+
+    /* Mobile */
+    .navbar-toggler {
+      border: none;
+      color: #ff6a00;
+      font-size: 24px;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+
+
+
+
+
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  height:90vh;
+  overflow:hidden;
+}
+
+.slide{
+  position:absolute;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transform:scale(1.1);
+  transition:1s ease;
+}
+
+.slide.active{
+  opacity:1;
+  transform:scale(1);
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,rgba(0,0,0,0.6),rgba(255,106,0,0.25));
+  z-index:1;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:0 10%;
+  color:#fff;
+  max-width:700px;
+}
+
+.hero-content h1{
+  font-size:55px;
+  font-weight:700;
+}
+
+.hero-content h1 span{color:#ff6a00;}
+
+.hero-content p{
+  margin-top:20px;
+  font-size:18px;
+  color:#eee;
+}
+
+.btn-main{
+  margin-top:25px;
+  padding:14px 30px;
+  background:#ff6a00;
+  color:#fff;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  width:fit-content;
+}
+
+.btn-main:hover{
+  background:#ff8c2a;
+  transform:translateY(-3px);
+}
+
+/* dots */
+.dots{
+  position:absolute;
+  bottom:25px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:10px;
+  z-index:3;
+}
+
+.dot{
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.5);
+  cursor:pointer;
+}
+
+.dot.active{
+  background:#ff6a00;
+  transform:scale(1.3);
+}
+
+/* ================= ABOUT ================= */
+.about-section{
+  padding:100px 0;
+  background:linear-gradient(180deg,#fff,#fff7ed);
+}
+
+.about-content h2{
+  font-size:40px;
+  font-weight:700;
+}
+
+.about-content h2 span{color:#ff6a00;}
+
+.about-content p{
+  margin-top:20px;
+  color:#555;
+  line-height:1.7;
+}
+
+.about-buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+  padding-bottom: 40px;
+}
+
+.btn-call,.btn-whatsapp{
+  padding:12px 22px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.btn-call{background:#ff6a00;color:#fff;}
+.btn-call:hover{background:#ff8c2a;transform:translateY(-3px);}
+
+.btn-whatsapp{background:#25D366;color:#fff;}
+.btn-whatsapp:hover{transform:translateY(-3px);}
+
+.about-image img{
+  width:100%;
+  max-width:450px;
+  border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* ================= SERVICES ================= */
+.services-section{
+  padding:100px 0;
+  background:#fff;
+}
+
+.services-header h2{
+  font-size:40px;
+  font-weight:700;
+}
+
+.services-header h2 span{color:#ff6a00;}
+
+.services-header p{
+  max-width:700px;
+  margin:15px auto 0;
+  color:#555;
+}
+
+.service-box{
+  background:#fff;
+  padding:30px 25px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.4s;
+  height:100%;
+  border:1px solid rgba(255,106,0,0.1);
+}
+
+.service-box .icon{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.service-box h4{
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.service-box p{
+  font-size:14px;
+  color:#666;
+  line-height:1.6;
+}
+
+.service-btn{
+  display:inline-block;
+  margin-top:15px;
+  padding:10px 20px;
+  border-radius:50px;
+  background:#ff6a00;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.service-btn:hover{
+  background:#ff8c2a;
+  transform:translateY(-3px);
+}
+
+.service-box:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 50px rgba(255,106,0,0.25);
+  border-color:#ff6a00;
+}
+
+/* ================= RESPONSIVE ================= */
+ @media(max-width:768px){
+  .hero-content h1{font-size:38px;}
+  .about-content h2{text-align:center;}
+  .about-content p{text-align:center;}
+  .about-buttons{justify-content:center; padding-bottom: 40px;}
+  .services-header h2{font-size:30px;}
+}
+
+ @media(max-width:375px){
+  .review {
+    width: 200px !important;
+    margin: 0 auto !important;
+  }
+}
+/* ================= TESTIMONIAL ================= */
+.testimonial-section{
+  padding:50px 0;
+  background:linear-gradient(135deg,#fff7ed,#ffffff);
+  position:relative;
+  overflow:hidden;
+}
+
+.testimonial-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.testimonial-header h2{
+  font-size:40px;
+  font-weight:700;
+  
+}
+
+.testimonial-header h2 span{
+  color:#ff6a00;
+}
+
+.testimonial-header p{
+  color:#666;
+  margin-top:10px;
+}
+
+.testimonial-container{
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
+
+.testimonial-card{
+  background:#fff;
+  padding:40px 30px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.08);
+  text-align:center;
+  transition:0.4s;
+  display:none;
+}
+
+.testimonial-card.active{
+  display:block;
+  animation:fade 0.5s ease;
+}
+
+.testimonial-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 60px rgba(255,106,0,0.25);
+}
+
+.quote{
+  font-size:35px;
+  color:#ff6a00;
+  margin-bottom:15px;
+}
+
+.review{
+  font-size:16px;
+
+  color:#555;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.client-name{
+  font-weight:600;
+  font-size:18px;
+}
+
+.company{
+  font-size:14px;
+  color:#888;
+}
+
+.stars{
+  margin-top:10px;
+  color:#ffb400;
+}
+
+.testimonial-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:#ff6a00;
+  border:none;
+  color:#fff;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.testimonial-btn:hover{
+  background:#ff8c2a;
+  transform:translateY(-50%) scale(1.1);
+}
+
+.prev{
+  left:-60px;
+}
+
+.next{
+  right:-60px;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:scale(0.95);}
+  to{opacity:1; transform:scale(1);}
+}
+
+/* responsive */
+@media(max-width:768px){
+  .prev{left:10px;}
+  .next{right:10px;}
+  .review{
+    width: 400px;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">MyBrand</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        ☰
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Company</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Testimonial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+<!-- HERO -->
+<section class="hero">
+
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');"></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d');"></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470');"></div>
+
+<div class="hero-content">
+<h1>Build Your <span>Dream Website</span></h1>
+<p>Modern design, powerful UI, and stunning visuals that make your brand stand out.</p>
+<a href="#" class="btn-main">Get Started</a>
+</div>
+
+<div class="dots">
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+</div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about-section">
+<div class="container">
+<div class="row align-items-center">
+
+<div class="col-lg-6">
+<div class="about-content">
+<h2>About <span>Our Company</span></h2>
+<p>
+We build modern websites with clean UI, fast performance, and premium design quality.
+Our goal is to help businesses grow digitally.
+</p>
+
+<div class="about-buttons">
+<a href="tel:+880123456789" class="btn-call">📞 Call Us</a>
+<a href="https://wa.me/880123456789" target="_blank" class="btn-whatsapp">💬 WhatsApp</a>
+</div>
+</div>
+</div>
+
+<div class="col-lg-6 text-center">
+<div class="about-image">
+<img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section">
+<div class="container">
+
+<div class="services-header text-center">
+<h2>Our <span>Services</span></h2>
+<p>We provide high-quality digital solutions to help your business grow faster and smarter.</p>
+</div>
+
+<div class="row g-4 mt-4">
+
+<!-- 6 Services -->
+<div class="col-lg-4 col-md-6"><div class="service-box"><div class="icon">💻</div><h4>Web Development</h4><p>Modern responsive websites.</p><a class="service-btn">Learn More</a></div></div>
+
+<div class="col-lg-4 col-md-6"><div class="service-box"><div class="icon">🎨</div><h4>UI/UX Design</h4><p>Beautiful user experience design.</p><a class="service-btn">Learn More</a></div></div>
+
+<div class="col-lg-4 col-md-6"><div class="service-box"><div class="icon">📱</div><h4>App Development</h4><p>Mobile apps for Android & iOS.</p><a class="service-btn">Learn More</a></div></div>
+
+<div class="col-lg-4 col-md-6"><div class="service-box"><div class="icon">🚀</div><h4>Digital Marketing</h4><p>Grow your online presence.</p><a class="service-btn">Learn More</a></div></div>
+
+<div class="col-lg-4 col-md-6"><div class="service-box"><div class="icon">🛒</div><h4>E-Commerce</h4><p>Online store solutions.</p><a class="service-btn">Learn More</a></div></div>
+
+<div class="col-lg-4 col-md-6"><div class="service-box"><div class="icon">⚙️</div><h4>SEO Optimization</h4><p>Rank higher on Google.</p><a class="service-btn">Learn More</a></div></div>
+
+</div>
+</div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="testimonial-section">
+
+<div class="testimonial-header">
+<h2>Our Client <span>Feedback</span></h2>
+<p>Testimonials from our happy clients around the world</p>
+</div>
+
+<div class="testimonial-container">
+
+<!-- LEFT BTN -->
+<button class="testimonial-btn prev"><i class="fas fa-angle-left"></i></button>
+
+<!-- CARD 1 -->
+<div class="testimonial-card active">
+<div class="quote"><i class="fas fa-quote-left"></i></div>
+<p class="review">Amazing service! They built our website exactly how we imagined. Fast, modern and very professional.</p>
+<div class="client-name">John Doe</div>
+<div class="company">ABC Company</div>
+<div class="stars">★★★★★</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="testimonial-card">
+<div class="quote"><i class="fas fa-quote-left"></i></div>
+<p class="review">Great UI/UX design quality. Our conversion rate improved after the redesign.</p>
+<div class="client-name">Sarah Khan</div>
+<div class="company">Tech Solutions</div>
+<div class="stars">★★★★★</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="testimonial-card">
+<div class="quote"><i class="fas fa-quote-left"></i></div>
+<p class="review">Very responsive team and excellent communication. Highly recommended!</p>
+<div class="client-name">Michael Lee</div>
+<div class="company">Startup Hub</div>
+<div class="stars">★★★★☆</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="testimonial-card">
+<div class="quote"><i class="fas fa-quote-left"></i></div>
+<p class="review">Professional work with beautiful design and smooth performance.</p>
+<div class="client-name">Emily Watson</div>
+<div class="company">Creative Agency</div>
+<div class="stars">★★★★★</div>
+</div>
+
+<!-- RIGHT BTN -->
+<button class="testimonial-btn next"><i class="fas fa-angle-right"></i></button>
+
+</div>
+</section>
+
+<!-- ================= CONTACT US ================= -->
+<section class="contact-section py-5" style="background:linear-gradient(180deg,#fff7ed,#ffffff);">
+
+<div class="container">
+
+<div class="text-center mb-5">
+<h2 style="font-size:40px;font-weight:700;">
+Contact <span style="color:#ff6a00;">Us</span>
+</h2>
+<p style="color:#666;">We are here to help you build your dream project</p>
+</div>
+
+<div class="row align-items-center g-5">
+
+<!-- LEFT SIDE FORM -->
+<div class="col-lg-6">
+
+<div style="background:#fff;padding:35px;border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.08);">
+
+<form>
+
+<div class="mb-3">
+<input type="text" class="form-control" placeholder="Your Name"
+style="padding:12px;border-radius:12px;">
+</div>
+
+<div class="mb-3">
+<input type="email" class="form-control" placeholder="Your Email"
+style="padding:12px;border-radius:12px;">
+</div>
+
+<div class="mb-3">
+<input type="text" class="form-control" placeholder="Subject"
+style="padding:12px;border-radius:12px;">
+</div>
+
+<div class="mb-3">
+<textarea rows="5" class="form-control" placeholder="Your Message"
+style="padding:12px;border-radius:12px;"></textarea>
+</div>
+
+<button type="submit"
+style="background:#ff6a00;color:#fff;padding:12px 25px;
+border:none;border-radius:50px;font-weight:600;
+transition:0.3s;">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE CONTENT -->
+<div class="col-lg-6 text-center">
+
+<h3 style="font-weight:700;margin-bottom:15px;">
+Let’s Build Something <span style="color:#ff6a00;">Amazing</span>
+</h3>
+
+<p style="color:#555;line-height:1.7;">
+We are a creative digital agency specializing in modern web design,
+UI/UX, and full-stack development. Contact us today and let’s grow your business together.
+</p>
+
+<img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+style="width:100%;max-width:420px;border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,0.15);margin-top:20px;">
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer style="background:linear-gradient(135deg,#ffa621b4,#ff3c00a2);
+padding:25px 0;border-top:1px solid rgba(255,106,0,0.15);">
+
+<div class="container">
+<div class="row align-items-center text-center text-md-start">
+
+<!-- LEFT SIDE -->
+<div class="col-md-4 mb-3 mb-md-0">
+<p style="margin:0;color:#666;font-size:14px;">
+© 2026 All Rights Reserved
+</p>
+</div>
+
+<!-- CENTER -->
+<div class="col-md-4 mb-3 mb-md-0 text-center">
+<h6 style="margin:0;font-weight:700;color:#ff6a00;letter-spacing:1px;">
+MyBrand
+</h6>
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="col-md-4 text-md-end text-center">
+
+<a href="#" style="margin:0 8px;color:#555;font-size:18px;
+transition:0.3s;display:inline-block;"
+onmouseover="this.style.color='#ff6a00';this.style.transform='translateY(-3px)'"
+onmouseout="this.style.color='#555';this.style.transform='translateY(0)'">
+<i class="fab fa-facebook-f"></i>
+</a>
+
+<a href="#" style="margin:0 8px;color:#555;font-size:18px;
+transition:0.3s;display:inline-block;"
+onmouseover="this.style.color='#ff6a00';this.style.transform='translateY(-3px)'"
+onmouseout="this.style.color='#555';this.style.transform='translateY(0)'">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="#" style="margin:0 8px;color:#555;font-size:18px;
+transition:0.3s;display:inline-block;"
+onmouseover="this.style.color='#ff6a00';this.style.transform='translateY(-3px)'"
+onmouseout="this.style.color='#555';this.style.transform='translateY(0)'">
+<i class="fab fa-linkedin-in"></i>
+</a>
+
+<a href="#" style="margin:0 8px;color:#555;font-size:18px;
+transition:0.3s;display:inline-block;"
+onmouseover="this.style.color='#ff6a00';this.style.transform='translateY(-3px)'"
+onmouseout="this.style.color='#555';this.style.transform='translateY(0)'">
+<i class="fab fa-twitter"></i>
+</a>
+
+</div>
+
+</div>
+</div>
+
+</footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- SCRIPT -->
+<script>
+
+    window.addEventListener("scroll", function () {
+      let navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+
+
+const slides=document.querySelectorAll(".slide");
+const dots=document.querySelectorAll(".dot");
+let i=0;
+
+function show(n){
+slides.forEach(s=>s.classList.remove("active"));
+dots.forEach(d=>d.classList.remove("active"));
+slides[n].classList.add("active");
+dots[n].classList.add("active");
+}
+
+setInterval(()=>{
+i=(i+1)%slides.length;
+show(i);
+},4000);
+
+dots.forEach((d,idx)=>{
+d.addEventListener("click",()=>{
+i=idx;
+show(i);
+});
+});
+
+let tIndex = 0;
+const tCards = document.querySelectorAll(".testimonial-card");
+
+function showTestimonial(i){
+  tCards.forEach(c => c.classList.remove("active"));
+  tCards[i].classList.add("active");
+}
+
+document.querySelector(".next").addEventListener("click", ()=>{
+  tIndex = (tIndex + 1) % tCards.length;
+  showTestimonial(tIndex);
+});
+
+document.querySelector(".prev").addEventListener("click", ()=>{
+  tIndex = (tIndex - 1 + tCards.length) % tCards.length;
+  showTestimonial(tIndex);
+});
+</script>
+
+</body>
+</html>
